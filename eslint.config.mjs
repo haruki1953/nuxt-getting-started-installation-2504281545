@@ -29,10 +29,10 @@ export default withNuxt([
       // 禁用 alert、confirm、prompt（在生产代码中一般不建议使用）
       'no-alert': 'warn',
       // 禁用未使用的变量（默认已启用）
-      'no-unused-vars': [
-        'warn',
-        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
-      ],
+      // 'no-unused-vars': [
+      //   'warn',
+      //   { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
+      // ],
       // 禁止 debugger，避免调试代码遗留
       'no-debugger': 'error',
       // 禁用 with（严格模式中已废弃）
