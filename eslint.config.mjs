@@ -72,7 +72,9 @@ export default withNuxt([
       // 'no-undef': 'error',
 
       // Nuxt/Vue 常见优化
-      'vue/no-v-html': 'off'
+      'vue/no-v-html': 'off',
+      // 组件参数不用连字符命名，用小驼峰命名
+      'vue/attribute-hyphenation': ['warn', 'never']
     }
   }
 ])

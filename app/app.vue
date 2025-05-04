@@ -5,6 +5,9 @@ const countAdd = () => {
   ElMessage(`testVal ${testStore.testVal}`)
 }
 countAdd()
+
+const isDark = useDark({ disableTransition: false })
+const toggleDark = useToggle(isDark)
 </script>
 <template>
   <div>
@@ -14,6 +17,7 @@ countAdd()
         <el-button @click="countAdd">button</el-button>
         <ElButton :icon="ElIconEditPen" type="success">button</ElButton>
         <LazyElButton type="warning">lazy button</LazyElButton>
+        <ElSwitch :modelValue="isDark" @click="toggleDark()" />
       </div>
     </div>
 
