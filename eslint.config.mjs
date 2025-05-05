@@ -61,12 +61,12 @@ export default withNuxt([
           endOfLine: 'auto' // 换行符号不限制（win mac 不一致）
         }
       ],
-      'vue/multi-word-component-names': [
-        'warn',
-        {
-          ignores: ['index'] // vue组件名称多单词组成（忽略index.vue）
-        }
-      ],
+      // 'vue/multi-word-component-names': [
+      //   'warn',
+      //   {
+      //     ignores: ['index'] // vue组件名称多单词组成（忽略index.vue）
+      //   }
+      // ],
       'vue/no-setup-props-destructure': ['off'], // 关闭 props 解构的校验
       // 未定义变量错误提示
       // 'no-undef': 'error',
@@ -74,7 +74,9 @@ export default withNuxt([
       // Nuxt/Vue 常见优化
       'vue/no-v-html': 'off',
       // 组件参数不用连字符命名，用小驼峰命名
-      'vue/attribute-hyphenation': ['warn', 'never']
+      'vue/attribute-hyphenation': ['warn', 'never'],
+
+      '@typescript-eslint/no-unused-vars': ['warn', { varsIgnorePattern: '^_' }]
     }
   }
 ])

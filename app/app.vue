@@ -1,35 +1,22 @@
 <script setup lang="ts">
-const testStore = useTestStore()
-const countAdd = () => {
-  testStore.testValAdd()
-  ElMessage(`testVal ${testStore.testVal}`)
-}
-countAdd()
+import { webName } from '@/config'
+import { onMounted } from 'vue'
+import { dataFirstLoadService } from './services'
 
-const isDark = useDark({ disableTransition: false })
-const toggleDark = useToggle(isDark)
+// 在服务端onMounted不会执行，应在setup获取数据
+if (import.meta.server) {
+  dataFirstLoadService()
+}
+onMounted(async () => {
+  dataFirstLoadService()
+})
+
+useHead({
+  title: webName
+})
 </script>
 <template>
-  <div>
-    <div class="test-box">
-      <div class="test">测试 {{ testStore.testVal }}</div>
-      <div>
-        <el-button @click="countAdd">button</el-button>
-        <ElButton :icon="ElIconEditPen" type="success">button</ElButton>
-        <LazyElButton type="warning">lazy button</LazyElButton>
-        <ElSwitch :modelValue="isDark" @click="toggleDark()" />
-      </div>
-    </div>
-
-    <!-- <NuxtRouteAnnouncer />
-
-    <NuxtWelcome /> -->
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
-<style lang="scss" scoped>
-.test-box {
-  .test {
-    background-color: red;
-  }
-}
-</style>
